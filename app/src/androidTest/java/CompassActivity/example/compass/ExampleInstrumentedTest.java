@@ -1,4 +1,4 @@
-package com.example.compass;
+package CompassActivity.example.compass;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package com.example.compass;
+package CompassActivity.example.compass;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.compass.R;
+
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
     ImageView compassImage;
     TextView displayer;
@@ -51,20 +54,37 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         int relativeDegree;
 
         if (degrees >= 0 && degrees < 90) {
+
+            if (degrees == 0){
+                direction = 0 + "° North";
+            }else{
             relativeDegree = degrees;
             direction = relativeDegree + "° North East";
+            }
 
         } else if (degrees >= 90 && degrees < 180) {
+            if (degrees == 90){
+                direction = 90 + "° East";
+            }else{
             relativeDegree = degrees - 90;
             direction = relativeDegree + "° South East";
+            }
 
         } else if (degrees >= 180 && degrees < 270) {
+            if (degrees == 180){
+                direction = 0 + "° South";
+            }else{
             relativeDegree = degrees - 180;
             direction = relativeDegree + "° South West";
+            }
 
         } else {
+            if (degrees == 360){
+                direction = 0 + "° North";
+            }else{
             relativeDegree = degrees - 270;
             direction = relativeDegree + "° North West";
+            }
         }
 
         return direction;
