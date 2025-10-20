@@ -64,9 +64,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         } else if (degrees >= 90 && degrees < 180) {
             if (degrees == 90){
-                direction = 90 + "° East";
+                direction = 0 + "° East";
             }else{
-            relativeDegree = degrees - 90;
+            relativeDegree = Math.abs((degrees - 90) - 90);
             direction = relativeDegree + "° South East";
             }
 
@@ -79,10 +79,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             }
 
         } else {
-            if (degrees == 360){
-                direction = 0 + "° North";
+            if (degrees == 270){
+                direction = 0 + "° West";
             }else{
-            relativeDegree = degrees - 270;
+            relativeDegree = Math.abs((degrees - 270) - 90);
             direction = relativeDegree + "° North West";
             }
         }
